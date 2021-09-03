@@ -1,0 +1,79 @@
+.testimonials {
+    text-align: center;
+    @extend %sec-mobile-padding;
+
+    &__title {
+        color: $gblue;
+        text-transform: uppercase;
+        font-family: font-family(fraunces);
+        font-weight: font-weight(bolder);
+        letter-spacing: 0.4rem;
+    }
+
+    &__grid {
+        &--block {
+            margin-top: 5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+
+            img {
+                width: 7rem;
+                height: 7rem;
+                border-radius: 50%;
+            }
+
+            &__para {
+                @extend %sec-para;
+                color: $vdgblue;
+            }
+
+            &__reviewer {
+                &--name {
+                    font-size: 1.5rem;
+                    color: $ddblue;
+                    font-family: font-family(fraunces);
+                    font-weight: font-weight(bolder);
+                }
+
+                &--post {
+                    font-size: 1rem;
+                    color: $gblue;
+                    margin-top: 0.5rem;
+                }
+            }
+        }
+    }
+
+    @include breakpoint-up(medium) {
+        &__grid {
+            &--block {
+                &__para {
+                    width: 70%;
+                }
+            }
+        }
+    }
+
+    @include breakpoint-up(large) {
+        width: 70%;
+        margin: 0 auto;
+        padding: 15vh 0;
+
+        &__grid {
+            display: grid;
+            grid-template-columns: repeat(3 , 1fr);
+            grid-column-gap: 5vw;
+            margin-top: 8rem;
+
+            &--block {
+                margin: 0;
+
+                &__para {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

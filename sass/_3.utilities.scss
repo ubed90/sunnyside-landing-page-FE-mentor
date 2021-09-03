@@ -1,0 +1,101 @@
+:root {
+  font-size: 62.5%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: font-family(barlow);
+  line-height: 1.6;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 80vh repeat(4, min-content);
+
+  @include breakpoint-up(medium) {
+    grid-template-rows: 100vh repeat(4, min-content);
+  }
+}
+
+body.active {
+  overflow: hidden;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+  font-size: font-size(para);
+}
+
+%bg {
+  background-position: center;
+  background-size: cover;
+}
+
+%sec-mobile-padding {
+  padding: 5rem 2.5rem;
+}
+
+%sec-desktop-padding {
+    padding: 10vh;
+}
+
+%text-center {
+  text-align: center;
+}
+
+%sec-title {
+  font-size: font-size("large");
+  font-family: font-family("fraunces");
+  font-weight: font-weight("bolder");
+  color: $ddblue;
+  line-height: 1.2;
+}
+
+%sec-para {
+  color: $dgblue;
+  font-size: font-size(para);
+}
+
+%sec-link {
+  text-transform: uppercase;
+  color: $ddblue;
+  font-family: font-family(fraunces);
+  font-weight: font-weight(bolder);
+  letter-spacing: 0.1rem;
+}
+
+.desktop-none {
+  @include breakpoint-up("medium") {
+    display: none;
+  }
+}
+
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(180deg , rgba(0 , 0 , 0 , 0.8) 20% , transparent);
+  visibility: hidden;
+  animation: overlay 0.8s cubic-bezier(1, 0, 0, 1);
+}
+
+.overlay.active {
+  visibility: visible;
+}
+
+@keyframes overlay {
+  0% {
+    opacity: 0;
+    height: 0%;
+  }
+
+  100% {
+    opacity: 1;
+    height: 100%;
+  }
+}

@@ -1,0 +1,14 @@
+.projects {
+    img {
+        object-fit: cover;
+    }
+
+    @include breakpoint-up(small) {
+        display: grid;
+        grid-template-columns: repeat(2 , 1fr);
+    }
+
+    @include breakpoint-up(medium) {
+        grid-template-columns: repeat(4 , 1fr);
+    }
+}

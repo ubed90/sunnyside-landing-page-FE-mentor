@@ -1,0 +1,129 @@
+.services {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4 , 1fr) repeat(2 , 1.5fr);
+
+    &__service {
+        @extend %sec-mobile-padding;
+        @extend %text-center;
+        display: flex;
+        flex-direction: column;
+        // align-items: center;
+        gap: 2rem;
+
+        h2 {
+            @extend %sec-title;
+        }
+
+        &--para {
+            @extend %sec-para;
+        }
+
+        &--link {
+            align-self: center;
+            @extend %sec-link;
+            position: relative;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                width: 120%;
+                height: 40%;
+                border-radius: 1rem;
+                transform: translateX(-50%);
+                background-color: hsla(51, 100%, 49% , 0.2);
+            }
+        }
+    }
+
+    &__service1 {
+        background-image: url(../images/mobile/image-transform.jpg);
+        @extend %bg;
+    }
+
+    &__service3 {
+        background-image: url(../images/mobile/image-stand-out.jpg);
+        @extend %bg;
+    }
+
+    &__service5 {
+        background-image: url(../images/mobile/image-graphic-design.jpg);
+        @extend %bg;
+    }
+
+    &__service6 {
+        background-image: url(../images/mobile/image-photography.jpg);
+        @extend %bg;
+    }
+
+    &__service5 , &__service6 {
+        h2 {
+            margin-top: auto;
+        }
+    }
+
+    @include breakpoint-up("medium") {
+        grid-template-columns: repeat(2 , 1fr);
+        grid-template-rows: repeat(3 , 1fr);
+
+        &__service {
+            padding: 10vh 5vw;
+            justify-content: center;
+            align-items: flex-start;
+            text-align: left;
+
+
+            &--link {
+                align-self: flex-start;
+            }
+
+            &--para {
+                width: 75%;
+            }
+        }
+
+        &__service1 {
+            background-image: url(../images/desktop/image-transform.jpg);
+        }
+
+        &__service2 {
+            order: -1;
+        }
+    
+        &__service3 {
+            background-image: url(../images/desktop/image-stand-out.jpg);
+        }
+    
+        &__service5 {
+            background-image: url(../images/desktop/image-graphic-design.jpg);
+        }
+    
+        &__service6 {
+            background-image: url(../images/desktop/image-photography.jpg);
+        }
+
+        &__service5 , &__service6 {
+            padding-bottom: 4rem !important;
+            align-items: center;
+            text-align: center;
+
+            h2 {
+                font-size: 2.5rem;
+            }
+
+            p {
+                color: $dcyan;
+            }
+        }
+
+    }
+
+    @include breakpoint-up(xlarge) {
+        &__service {
+            padding: 20vh 10vw;
+            gap: 4rem;
+        }
+    }
+}

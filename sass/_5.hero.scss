@@ -1,0 +1,200 @@
+.hero {
+  background-image: url(../images/mobile/image-header.jpg);
+  @extend %bg;
+  position: relative;
+
+  &__navbar {
+    padding: 3rem 2.5rem 0;
+    display: flex;
+    justify-content: space-between;
+
+    &--links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: absolute;
+      width: 85%;
+      top: 25%;
+      left: 50%;
+      padding: 2rem 0;
+      background-color: $white;
+      transform: translateX(-50%) scaleY(0);
+      transform-origin: top;
+      transition: transform 0.3s ease-in-out;
+      z-index: 1;
+
+      &::before {
+        content: "";
+        position: absolute;
+        border: 3rem solid transparent;
+        border-right-color: $white;
+        top: -18%;
+        transform: translateY(50%);
+        right: 0;
+      }
+
+      a:link,
+      a:visited {
+        display: block;
+        color: $dgblue;
+        padding: 1.5rem 0;
+      }
+
+      a:link:nth-child(4),
+      a:visited:nth-child(4) {
+        margin-top: 1rem;
+        color: $ddblue;
+        text-transform: uppercase;
+        font-family: font-family(fraunces);
+        font-weight: font-weight(bold);
+        border-radius: 5rem;
+        padding: 1rem 3rem;
+        background-color: $yellow;
+        transition: background-color 0.2s ease , color 0.2s ease;
+
+        &:hover,
+        &:active {
+            background-color: black;
+            color: $yellow;
+        }
+      }
+    }
+
+    &--links.active {
+      transform: translateX(-50%) scaleY(1);
+
+      a:link,
+      a:visited {
+        animation: fadein 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+        transform: translateX(-100rem);
+        opacity: 0;
+      }
+
+      a:link:nth-child(1),
+      a:visited:nth-child(1) {
+        animation-delay: 0s;
+      }
+
+      a:link:nth-child(2),
+      a:visited:nth-child(2) {
+        animation-delay: 0.25s;
+      }
+
+      a:link:nth-child(3),
+      a:visited:nth-child(3) {
+        animation-delay: 0.5s;
+      }
+
+      a:link:nth-child(4),
+      a:visited:nth-child(4) {
+        animation-delay: 0.75s;
+      }
+    }
+
+    &--hamburger {
+      cursor: pointer;
+      z-index: 100;
+    }
+  }
+
+  &__content {
+    text-align: center;
+    margin-top: 15vh;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    &--title {
+      font-size: 3.5rem;
+      font-family: font-family(fraunces);
+      font-weight: font-weight(bolder);
+      color: $white;
+      text-transform: uppercase;
+      line-height: 1.2;
+      letter-spacing: 0.8rem;
+    }
+
+    img {
+      margin: 0 auto;
+      transform: scale(0.7);
+    }
+  }
+
+  @include breakpoint-up("medium") {
+    background-image: url(../images/desktop/image-header.jpg);
+
+    &__content {
+      padding-top: 5vh;
+      margin-top: 15vh;
+      gap: 8rem;
+
+      &--title {
+        font-size: font-size(xlarge);
+      }
+
+      img {
+        transform: scale(1);
+      }
+    }
+
+    &__navbar {
+      padding: 2rem 4rem;
+      align-items: center;
+
+      &--links {
+        all: unset;
+        display: flex;
+        align-items: center;
+
+        a:link,
+        a:visited {
+          padding: 0;
+          color: $white;
+          transition: all 0.3s ease-in-out;
+        }
+
+        a:hover,
+        a:active {
+            opacity: 0.8;
+        }
+
+        a:link:nth-child(4),
+        a:visited:nth-child(4) {
+          margin: 0;
+          color: $ddblue;
+          text-transform: uppercase;
+          font-family: font-family(fraunces);
+          font-weight: font-weight(bold);
+          border-radius: 5rem;
+          padding: 1rem 3rem;
+          background-color: $white !important;
+        }
+
+        a:nth-child(4):hover,
+        a:nth-child(4):active {
+            opacity: 1;
+            color: $white !important;
+            background-color: rgba($color: #fff, $alpha: 0.3) !important;
+        }
+
+        a:not(:last-child) {
+            margin-right: 3rem;
+        }
+      }
+    }
+  }
+
+  @include breakpoint-up("xlarge") {
+    &__content {
+      padding: 0;
+      margin-top: 20vh;
+    }
+  }
+}
+
+@keyframes fadein {
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

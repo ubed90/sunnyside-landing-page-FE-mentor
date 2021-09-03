@@ -1,0 +1,43 @@
+.footer {
+  background-color: $mcyan;
+  @extend %sec-mobile-padding;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+
+  &__nav {
+    a:link,
+    a:visited {
+      color: $dcyan;
+      transition: color 0.2s ease-in-out;
+      margin: 0 1.5rem;
+    }
+
+    a:hover,
+    a:active {
+      color: $white;
+    }
+  }
+
+  &__links {
+    margin-top: 4rem;
+
+    a:link,
+    a:visited {
+      margin: 1rem;
+    }
+
+    a:hover,
+    a:active {
+      svg {
+        path {
+          fill: white;
+          transition: all 0.2s ease-in-out;
+        }
+      }
+    }
+  }
+}

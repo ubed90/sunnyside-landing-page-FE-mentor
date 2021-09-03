@@ -1,0 +1,41 @@
+// COLORS
+$red: hsl(7, 99%, 70%);
+$yellow: hsl(51, 100%, 49%);
+$dcyan: hsl(167, 40%, 24%);
+$dblue: hsl(198, 62%, 26%);
+$mcyan: hsl(168, 34%, 41%);
+$ddblue: hsl(212, 27%, 19%);
+$vdgblue: hsl(213, 9%, 39%);
+$dgblue: hsl(232, 10%, 55%);
+$gblue: hsl(210, 4%, 67%);
+$white: hsl(0, 0%, 100%);
+
+
+$font-families: (
+    "barlow": 'Barlow',
+    "fraunces": 'Fraunces',
+);
+
+@function font-family($font-family-style) {
+    @return map-get($map: $font-families, $key: $font-family-style);
+};
+
+$font-weights: (
+    "regular": 600,
+    "bold": 700,
+    "bolder": 900,
+);
+
+@function font-weight($font-weight-style) {
+    @return map-get($map: $font-weights, $key: $font-weight-style);
+};
+
+$font-sizes: (
+    "para": 1.6rem,
+    "large": calc(2rem + 2vw),
+    "xlarge": calc(1.5rem + 3vw),
+);
+
+@function font-size($font-size-style) {
+    @return map-get($map: $font-sizes, $key: $font-size-style);
+};
